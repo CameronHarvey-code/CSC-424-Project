@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, location } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {Link } from "react-router-dom";
 import Axios from 'axios';
+import auth from './auth';
+
 
 
 
@@ -28,9 +30,22 @@ export const Login = props => {
       password: password,
     }).then((response) => {
 
-      if (response.data.message) {
-        setLoginStatus(response.data.message)
+      
+      if(response.data.message){
+
+        setLoginStatus(response.data.message);
+
       }
+
+      else {
+
+        window.location.reload();
+      }
+   
+    
+
+
+    
 
      
     });
@@ -42,6 +57,20 @@ export const Login = props => {
     if (response.data.loggedIn == true) {
       setLoginStatus(response.data.user.rows[0].user_email);
       console.log(response.data.user.rows[0].user_email);
+
+      auth.login(() => {
+       
+        props.history.push("/loggedin");
+        
+      });
+      
+
+    
+    }
+
+    if (response.data.loggedIn == false) {
+      console.log(response.data[0]);
+      setLoginStatus(response.data.message);
     }
   });
 
