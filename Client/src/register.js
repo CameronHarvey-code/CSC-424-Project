@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import {Link} from 'react-router-dom';
@@ -15,6 +15,8 @@ export const Register = props => {
   const [emailRegister, setEmailRegister] = useState("");
   const [passwordRegister, setPasswordRegister] = useState("");
 
+  const [registerStatus, setRegisterStatus] = useState("");
+
   function validateForm() {
     return emailRegister.length > 0 && passwordRegister.length > 0 && firstName.length > 0 && lastName.length >0;
   }
@@ -22,6 +24,8 @@ export const Register = props => {
   function handleSubmit(event) {
     event.preventDefault();
   }
+
+
 
   const register = () => {
     Axios.post('http://localhost:3001/register', {
@@ -32,7 +36,19 @@ export const Register = props => {
     }).then((response) => {
       console.log(response);
     });
+
+    setRegisterStatus("Succesfully registered. Redirecting..");
+    console.log("Reg status:", registerStatus);
+
+    setTimeout(function () {
+      props.history.push("/");
+    window.location.reload();
+  }, 3000);
+
+   
   };
+
+  
 
   return (
 
@@ -135,6 +151,8 @@ export const Register = props => {
         </Link>
 
         </log> 
+
+        <h4>{registerStatus}</h4>
 
   
     
@@ -277,6 +295,14 @@ export const Register = props => {
             top 180px;
             left -89px;
           }
+
+          .Register h4 {
+            
+            position relative;
+
+            top 90px;
+            left 30px;
+          }
          
 
           `}
@@ -295,5 +321,7 @@ export const Register = props => {
     
     
   }
+
+
 
 
