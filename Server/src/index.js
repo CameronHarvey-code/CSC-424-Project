@@ -1,4 +1,3 @@
-
 const cassandra = require("cassandra-driver");
 const express = require("express");
 const cors = require("cors");
@@ -24,7 +23,7 @@ app.use(cors({
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.use(session({
+app.use(session({            //session to keep user logged in
   key: "userId",
   secret: "test",
   resave: false,
@@ -35,20 +34,20 @@ app.use(session({
 }));
 
 
-const client = new cassandra.Client({
-    contactPoints: ['127.0.0.1'],
+const client = new cassandra.Client({         //Connects to cassandra
+    contactPoints: ['127.0.0.1'],             //replace with ip to cassandra database
     localDataCenter: 'datacenter1',
-    keyspace: 'app'
+    keyspace: 'app'                           //keyspace name here
   });
 
-app.post('/register', (req, res) => {
+app.post('/register', (req, res) => {     // register user in database
 
     const email = req.body.email;
     const password = req.body.password;
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
 
-    bcrypt.hash(password,saltRounds, (err, hash) => {
+    bcrypt.hash(password,saltRounds, (err, hash) => {    //password encryption
 
       if (err) {
         console.log(err);
@@ -65,7 +64,7 @@ app.post('/register', (req, res) => {
 });
 });
 
-app.get('/login', (req, res) => {
+app.get('/login', (req, res) => {            //
   if (req.session.user) {
     res.send({loggedIn: true, user: req.session.user})
   } else {
@@ -74,7 +73,8 @@ app.get('/login', (req, res) => {
 })
 
 
-app.post('/login', (req, res) => {
+app.post('/login', (req, res) => {           //check user is in database and password matches 
+                                             //then login
 
     const email = req.body.email;
     const password = req.body.password;
@@ -109,6 +109,51 @@ app.post('/login', (req, res) => {
 
     );
 });
+
+app.post('/addEvent', (req, res) => {
+
+  const date = req.body.date;
+  const event = req.body.event;
+
+  client.execute("INSERT INTO events (event_name, event_date) VALUES (?,?)",
+    [event, date],
+    (err, result) => {
+      console.log(err);
+    });
+})
+
+app.get('/logout', (req, res) => {
+  console.log("Cookie:", req.cookies);
+  res.clearCookie('userId');
+  req.clearCookie('userId');
+
+});
+
+app.get('/eventDisplay', (req, res) => {
+  client.execute("SELECT * FROM events",
+  (err, result) => {
+    console.log("Event Display:", result);
+    res.send(result);
+  });
+  
+});
+
+app.post('/updateAttendance', (req, res) => {
+  const attendance = req.body.attendance;
+  const name = req.body.name;
+  const date = req.body.date;
+  console.log(req.body.name);
+  console.log(req.body.date);
+  console.log(req.body.attendance);
+  client.execute("UPDATE events SET event_attendance = ? WHERE event_name = ? AND event_date = ?",
+  [attendance, name, date], {prepare : true},
+  (err, result) => {
+   
+    console.log(err);
+  });
+  
+});
+
 
 const query = 'SELECT user_password FROM user WHERE user_email = ?';
 
