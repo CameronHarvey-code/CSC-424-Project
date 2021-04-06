@@ -2,6 +2,8 @@ import React from 'react';
 import Axios from 'axios';
 import Button from 'react-bootstrap/Button';
 
+import styles from './display.css'
+
 
 class Display extends React.Component {
 
@@ -42,11 +44,15 @@ class Display extends React.Component {
 
   updateAttendance(ename, date) {
 
+    
    
     console.log(ename);
 
+    const enteredNum = prompt('Please enter the attendance.')
+
+
     Axios.post('http://localhost:3001/updateAttendance', {
-        attendance: 13,
+        attendance: enteredNum,
         name: ename,
         date: date,
 
@@ -54,6 +60,31 @@ class Display extends React.Component {
 
 
     });
+
+    window.location.reload();
+  
+  }
+
+  deleteEvent(ename, date) {
+
+    
+   
+    console.log("delete:", ename);
+
+   
+
+
+    Axios.post('http://localhost:3001/deleteEvent', {
+      
+        name: ename,
+        date: date,
+
+    }).then((response) => {
+
+
+    });
+
+    window.location.reload();
   
   }
 
@@ -61,17 +92,32 @@ class Display extends React.Component {
   render() {
       return(
 
-        <div className="col">
+        <div className="display">
 
         {this.state.info.map((val) => (
-     <div>
-        <div>
-            {val.event_name}      {val.event_date} {val.event_attendance}
+     <div className="event">
+        <div className="name">
+            {val.event_name}    
+            </div>
+
+            <div className="date">
+              {"Event Date: " }
+              {val.event_date} 
+              </div>
+
+              <div className="attendance">
+              {"Attendance: "}
+              {val.event_attendance}
         </div>
 
-        <Button onClick={this.updateAttendance.bind(this,val.event_name, val.event_date)}>Add Attendance</Button>
-       
+      
+        <button type="submit" class="attend" onClick={this.updateAttendance.bind(this,val.event_name, val.event_date)}>Add Attendance</button>
+ 
+        <button type="submit" class="delete" onClick={this.deleteEvent.bind(this,val.event_name, val.event_date)}>Delete Event</button>
+     
         </div>
+
+        
         
         ))}
        </div>
