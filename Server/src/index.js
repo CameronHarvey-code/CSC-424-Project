@@ -29,7 +29,7 @@ app.use(session({            //session to keep user logged in
   resave: false,
   saveUninitialized: false,
   cookie: {
-    expires: 60 * 60 * 24,
+    expires: 60 * 60 * 3600000,
   }
 }));
 
@@ -117,6 +117,20 @@ app.post('/addEvent', (req, res) => {
 
   client.execute("INSERT INTO events (event_name, event_date) VALUES (?,?)",
     [event, date],
+    (err, result) => {
+      console.log(err);
+    });
+})
+
+app.post('/deleteEvent', (req, res) => {
+
+  const date = req.body.date;
+  const name = req.body.name;
+
+  console.log("Delete:", name);
+
+  client.execute("DELETE FROM events WHERE event_name = ? AND event_date = ?",
+    [name, date], {prepare : true},
     (err, result) => {
       console.log(err);
     });
