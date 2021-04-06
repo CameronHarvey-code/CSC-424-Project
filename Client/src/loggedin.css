@@ -1,4 +1,3 @@
-
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 
@@ -18,7 +17,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 
 .form-popup {
-  display: block;
+
   position: fixed;
   bottom: 0;
   right: 15px;
@@ -78,4 +77,22 @@ body {font-family: Arial, Helvetica, sans-serif;}
   opacity: 1;
 }
 
+.logout{
+  position: fixed;
+  background-color:red;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 10%;
+  margin-bottom: 20px;
 
+
+  bottom:0px;
+  left:10px;
+  opacity: 0.8;
+}
+
+.logout:hover{
+  opacity: 1;
+}
