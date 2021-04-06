@@ -14,6 +14,8 @@ export const Loggedin = props => {
 
   const [date, setDate] = useState("");
   const [event, setEvent] = useState("");
+  const [disp , setDisp] = useState("");
+
 
 
   function handleSubmit(event) {
@@ -21,13 +23,14 @@ export const Loggedin = props => {
   }
 
     function openForm() {
-        document.getElementById("myForm").setAttribute('style', 'display: block');
+        setDisp('block');
       
 
     };
 
-    function closeForm() {
-        document.getElementById("myForm").style.display = "none";
+   const closeForm = () => {
+      console.log("hi:",{disp});
+        setDisp('none');
 
     };
 
@@ -42,6 +45,10 @@ export const Loggedin = props => {
       };
 
       const addEvent = () => {
+
+        console.log(date);
+
+
         Axios.post('http://localhost:3001/addEvent', {
           date: date,
           event: event,
@@ -62,9 +69,9 @@ export const Loggedin = props => {
         <link rel="stylesheet" href="loggedin.css"></link>
         </head>
       <body>
-        <button class="open-button" onclick={openForm}>Add New Event</button>
+        <button class="open-button"  onclick={openForm}>Add New Event</button>
 
-            <div class="form-popup" id="myForm">
+            <div class="form-popup" style={{display: {disp}}} id="myForm">
                  <form class="form-container" onSubmit = {handleSubmit} >
                  <h1>Add Event</h1>
 
@@ -91,12 +98,11 @@ export const Loggedin = props => {
   
             </div>
 
-            <logoutButton>
-                 <Button onClick={logout} block size="lg" type="submit">
+            
+                 <button class="logout" onClick={logout} block size="lg" type="submit">
                      Logout
-                 </Button>
-                </logoutButton>
-
+                 </button>
+               
 
 
 
@@ -110,5 +116,8 @@ export const Loggedin = props => {
     );
 
  }
+
+
+
 
 
