@@ -15,7 +15,11 @@ class Display extends React.Component {
       error: null,
       isLoaded: false,
       info: [],
-      attendance: 0,
+      nursery: 0,
+      pre_school: 0,
+      kinder: 0,
+      early_elemtary: 0,
+      late_elementary: 0,
       name: "",
     };
 
@@ -33,39 +37,45 @@ class Display extends React.Component {
                info: response.data.rows
 
            })
-
-           
-   
            console.log(this.state.info);
 
           });
 
   }
 
-  updateAttendance(ename, date) {
+  updateAttendance(ename, date, id) {
 
-    
-   
+
     console.log(ename);
+    console.log(date);
 
-    const enteredNum = prompt('Please enter the attendance.')
+    const nursery = prompt('Please enter the NURSERY attendance:')
+    const pre_school = prompt('Please enter the PRE-SCHOOL attendance:')
+    const kinder = prompt('Please enter the KINDER attendance:')
+    const early_elementary = prompt('Please enter the EARLY-ELEMENTARY attendance:')
+    const late_elementary = prompt('Please enter the LATE-ELEMENTARY attendance:')
 
 
     Axios.post('http://localhost:3001/updateAttendance', {
-        attendance: enteredNum,
+        id: id,
+        nursery: nursery,
+        pre_school: pre_school,
+        kinder: kinder,
+        early_elementary: early_elementary,
+        late_elementary: late_elementary,
         name: ename,
-        date: date,
+        date: date
 
     }).then((response) => {
 
-
+      console.log(response.body);
     });
 
     window.location.reload();
   
   }
 
-  deleteEvent(ename, date) {
+  deleteEvent(ename, date, id) {
 
     
    
@@ -75,7 +85,8 @@ class Display extends React.Component {
 
 
     Axios.post('http://localhost:3001/deleteEvent', {
-      
+
+        id: id,
         name: ename,
         date: date,
 
@@ -102,18 +113,38 @@ class Display extends React.Component {
 
             <div className="date">
               {"Event Date: " }
-              {val.event_date} 
+              {val.date} 
               </div>
 
-              <div className="attendance">
-              {"Attendance: "}
-              {val.event_attendance}
-        </div>
+              <div className="nursery"> 
+              {"Nursery: "} {val.nursery} 
+                
+              </div>
+
+              <div className="pre_school">
+              {"Pre-School: "}
+              {val.pre_school}
+              </div>
+
+              <div className="kinder">
+              {"Kinder: "}
+              {val.kinder}
+              </div>
+
+              <div className="early-elementary">
+              {"Early-Elementary: "}
+              {val.early_elementary}
+              </div>
+
+              <div className="late-elementary">
+              {"Late-Elementary: "}
+              {val.late_elementary}
+              </div>
 
       
-        <button type="submit" class="attend" onClick={this.updateAttendance.bind(this,val.event_name, val.event_date)}>Add Attendance</button>
+        <button type="submit" class="attend" onClick={this.updateAttendance.bind(this,val.event_name, val.date, val.event_id)}>Add Attendance</button>
  
-        <button type="submit" class="delete" onClick={this.deleteEvent.bind(this,val.event_name, val.event_date)}>Delete Event</button>
+        <button type="submit" class="delete" onClick={this.deleteEvent.bind(this,val.event_name, val.date, val.event_id)}>Delete Event</button>
      
         </div>
 
@@ -128,3 +159,4 @@ class Display extends React.Component {
 }
 
 export default Display;
+
