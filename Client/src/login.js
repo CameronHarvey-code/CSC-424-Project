@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import {Link } from "react-router-dom";
 import Axios from 'axios';
 import auth from './auth';
+import styles from './login.css';
 
 
 
@@ -42,10 +43,6 @@ export const Login = props => {
         window.location.reload();
       }
    
-    
-
-
-    
 
      
     });
@@ -56,7 +53,7 @@ export const Login = props => {
 
     if (response.data.loggedIn == true) {
       setLoginStatus(response.data.user.rows[0].user_email);
-      console.log(response.data.user.rows[0].user_email);
+      //console.log(response.data.user.rows[0].user_email);
 
       auth.login(() => {
        
@@ -69,7 +66,7 @@ export const Login = props => {
     }
 
     if (response.data.loggedIn == false) {
-      console.log(response.data[0]);
+      //console.log(response.data[0]);
       setLoginStatus(response.data.message);
     }
   });
@@ -78,16 +75,15 @@ export const Login = props => {
 
   return (
 
-    
-
-
-
+    <div>
+        <head>
+        <link rel="stylesheet" href="login.css"></link>
+        </head>
     <div className="Login" >
 
    
     <h1>Login </h1>
 
-  
       <Form onSubmit={handleSubmit}>
         <Form.Group size="lg" controlId="email">
 
@@ -140,133 +136,9 @@ export const Login = props => {
     <h4>{loginStatus}</h4>
     
       </Form>
-
-      
-        <style jsx>{`
-
-            body {
-               font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
-               color: #404040;
-               background: #0ca3d2;
-              }
-        
-        
-            .Login {
-              position: relative;
-              margin: 40px auto;
-              padding: 20px 20px 100px;
-              width: 310px;
-              background: white;
-              border-radius: 3px;
-              -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
-              box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
-
-
-          }
-
-    
-
-          .Login:before {
-            content: '';
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            bottom: -8px;
-            left: -8px;
-            z-index: -1;
-            background: rgba(0, 0, 0, 0.08);
-            border-radius: 4px;
-          }
-
-          .Login h1 {
-            margin: -20px -20px 21px;
-            line-height: 40px;
-            font-size: 15px;
-            font-weight: bold;
-            color: #555;
-            text-align: center;
-            text-shadow: 0 1px white;
-            background: #f3f3f3;
-            border-bottom: 1px solid #cfcfcf;
-            border-radius: 3px 3px 0 0;
-            background-image: -webkit-linear-gradient(top, whiteffd, #eef2f5);
-            background-image: -moz-linear-gradient(top, whiteffd, #eef2f5);
-            background-image: -o-linear-gradient(top, whiteffd, #eef2f5);
-            background-image: linear-gradient(to bottom, whiteffd, #eef2f5);
-            -webkit-box-shadow: 0 1px whitesmoke;
-            box-shadow: 0 1px whitesmoke;
-          }
-          
-          
-          
-          .Login register {
-            position relative;
-           
-            top : 80px;
-            left -40px;
-          }
-
-          .Login logButton {
-            position relative;
-            top: 80px;
-            left : 240px;
-          }
-          .Login inputpassword {
-
-            position relative;
-            left 4px;
-            top 60px;
-            margin : 20px 0 0;
-            width : 200px;
-            
-          }
-
-          .Login inputemail {
-
-            position relative;
-            left -25px;
-            top 25px;
-            
-          }
-
-          .Login passwordlabel {
-
-            position relative;
-            top 35px;
-            left 40px;
-
-
-          }
-
-          .Login emaillabel {
-
-            position relative;
-           
-            left 39px;
-
-
-          }
-
-          .Login h4 {
-            
-            position relative;
-
-            top 90px;
-            left 30px;
-          }
-
-          `}
-
-          
-          
-
-
-        </style>
-
-
-    
-
      
+    </div>
     </div>
   );
 }
+
