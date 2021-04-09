@@ -1,0 +1,36 @@
+//Creation of Keyspace: Iglesia Vida Test
+
+
+CREATE KEYSPACE iglesia_vida_test
+   ... WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3}; 
+
+
+CREATE TABLE user(
+   user_id uuid PRIMARY KEY,
+   user_firstname text,
+   user_lastname text,
+   user_email text,
+   user_password text,
+   user_status text
+   );
+  
+CREATE TABLE sunday_service(
+   event_id uuid PRIMARY KEY,
+   event_name text,
+   date text,
+   nursery varint,
+   pre_school varint,
+   kinder varint,
+   early_elementary varint,
+   late_elementary varint,
+   teachers_assistants varint,
+   sanctuary varint,
+   media_room varint,
+   ushers varint,
+   visitors varint,
+   w_baptisms,
+   h_g_baptisms varint
+   );
+   
+
+ 
