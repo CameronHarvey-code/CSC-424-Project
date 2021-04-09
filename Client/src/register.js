@@ -14,11 +14,12 @@ export const Register = props => {
   const [lastName, setLastName] = useState("");
   const [emailRegister, setEmailRegister] = useState("");
   const [passwordRegister, setPasswordRegister] = useState("");
+  const [userStatus, setUserStatus] = useState("");
 
   const [registerStatus, setRegisterStatus] = useState("");
 
   function validateForm() {
-    return emailRegister.length > 0 && passwordRegister.length > 0 && firstName.length > 0 && lastName.length >0;
+    return emailRegister.length > 0 && passwordRegister.length > 0 && firstName.length > 0 && lastName.length >0 && userStatus.length > 0;
   }
 
   function handleSubmit(event) {
@@ -33,8 +34,9 @@ export const Register = props => {
       password: passwordRegister,
       firstName: firstName,
       lastName: lastName,
+      userStatus: userStatus
     }).then((response) => {
-      console.log(response);
+      //console.log(response);
     });
 
     setRegisterStatus("Succesfully registered. Redirecting..");
@@ -138,6 +140,26 @@ export const Register = props => {
          </inputpassword>
 
         </Form.Group>
+
+        <Form.Group size="lg" controlId="user_status">
+
+          <statuslabel>
+          <Form.Label >Status:</Form.Label>
+          </statuslabel>
+
+            <inputstatus>
+            <Form.Control
+              type="status"
+              placeholder="User Status"
+              value={userStatus}
+              onChange={(e) => setUserStatus(e.target.value)}
+              
+            />
+          </inputstatus>
+
+          </Form.Group>
+
+        
 
         <logButton>
           <Button onClick ={register} block size="lg" type="submit" disabled={!validateForm()}>
@@ -321,7 +343,6 @@ export const Register = props => {
     
     
   }
-
 
 
 
