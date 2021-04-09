@@ -1,0 +1,109 @@
+CSC 424
+Group 6
+Spring 2021 Goals' Outline
+
+Week1 (Feb 22nd – Feb 26th)
+
+Goals: 
+	General: Get the Front-End, Back-End and Database to communicate with each other.
+	Front-End:
+		-Login page
+		-Start developing the other pages
+		-Have Front-end communicate with server
+	Back-End:
+		-Create a server
+		-Have a server communicating with database 
+	Database:
+		-Have a database communicating with server
+		-Design the data relation among the different data components
+		-Create all the tables necessary to hold all the data
+
+Week2 (Mar 1st – Mar 5th)
+Goals:
+	General:	Meet with the customer to get their feedback
+Front-End:
+	-Meet the customer feedback
+	Back-End:
+		-Adjust any to issues encountered by the customer 
+	Database:
+		-Test that the data is consistent and reliable after F-E and B-E adjustments
+
+Week3 (Mar 8th – Mar 12th)
+Goals:
+Front-End:
+	-‘Sunday Attendance’ page
+	-‘Wednesday Attendance’ page
+	Back-End:
+		-Data’s Security and Privacy 
+		-Reports and graphs
+	Database:
+		-
+
+Week4 (Mar 15th – Mar 19th)
+Goals:
+Front-End:
+	-Visitor’s Info page
+	-Member’s Info page
+	Back-End:
+		-Add Machine Learning component to reports and graphs 
+	Database:
+
+March Report-March 19th
+
+Week (Mar 22nd – Mar 26th)
+Goals:
+General:	Meet with the customer to get their feedback
+Front-End:
+	-Meet the customer feedback
+	Back-End:
+		-Adjust any to issues encountered by the customer 
+	Database:
+		-Test that the data is consistent and reliable
+
+Week2 (Mar 29th – Apr 2th)
+Goals:
+	General:	Meet with the customer to get their feedback
+Front-End:
+	-Meet the customer feedback
+	Back-End:
+		-Adjust any to issues encountered by the customer 
+	Database:
+		-Test that the data is consistent and reliable
+
+Week (Apr 5th – Apr 9th)
+Goals:
+Front-End:
+	-Test Front-End Application
+	Back-End:
+		-Test security, privacy
+		-Test machine learning
+	Database:
+		--Test that the data is consistent and reliable
+
+
+Week4 (Apr 12th – Apr 16th)
+Goals:
+	General: Fully Functional Application
+Front-End:
+	-Bug fixes
+	Back-End:
+		-Bug fixes
+	Database:
+		-Bug fixes
+
+
+April Report - April 16th
+
+Week1 (Apr 18th – Apr 23rd) 
+Goals:
+	General: Application ready to be deployed
+Front-End:
+	-Last check up before launching the application.
+	Back-End:
+	- Last check up before launching the application.
+
+	Database:
+	- Last check up before launching the application.
+
+Final Report and Presentation – April 23rd
+
