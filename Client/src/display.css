@@ -8,7 +8,7 @@ background-color:turquoise;}
     padding: 20px 20px 100px;
     width: 310px;
     background: white;
-    border-radius: 3px;
+    border-radius: 10px;
     -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
 }
@@ -21,6 +21,7 @@ background-color:turquoise;}
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
 }
 
 .date{
@@ -32,10 +33,37 @@ background-color:turquoise;}
     
     
 }
-
-.attendance{
+.nursery{
     position: relative;
-    text-align: center;
+    text-align: left;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    top: 60px;
+}
+.pre_school{
+    position: relative;
+    text-align: left;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    top: 60px;
+}
+.kinder{
+    position: relative;
+    text-align: left;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    top: 60px;
+}
+.early-elementary{
+    position: relative;
+    text-align: left;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    top: 60px;
+}
+.late-elementary{
+    position: relative;
+    text-align: left;
     font-size: large;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     top: 60px;
@@ -43,7 +71,7 @@ background-color:turquoise;}
 
 .attend{
     position: relative;
-    background-color:green;
+    background-color:#4CAF50;
     color: white;
     padding: 16px 20px;
     border: none;
@@ -51,15 +79,13 @@ background-color:turquoise;}
     width: 100%;
     margin-bottom:0px;
     top: 100px;
-   
-    
-  
+    border-radius: 10px;
     opacity: 0.8;
 
 }
 
 .attend:hover {
-    opacity: 1;
+    opacity: 3;
 }
 
 .delete{
@@ -71,14 +97,12 @@ background-color:turquoise;}
     cursor: pointer;
     width: 100%;
     margin-bottom: 20px;
- 
-
+    border-radius: 10px;
     top: 110px;
-  
     opacity: 0.8;
 
 }
 
 .delete:hover{
-    opacity: 1;
+    opacity: 3;
 }

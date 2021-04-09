@@ -14,7 +14,7 @@ export const Loggedin = props => {
 
   const [date, setDate] = useState("");
   const [event, setEvent] = useState("");
-  const [disp , setDisp] = useState("");
+  const [disp, setDisp] = useState('none');
 
 
 
@@ -23,14 +23,13 @@ export const Loggedin = props => {
   }
 
     function openForm() {
-        setDisp('block');
-      
-
+        setDisp('');
+        console.log(disp);
     };
 
-   const closeForm = () => {
-      console.log("hi:",{disp});
-        setDisp('none');
+   function closeForm() {
+        setDisp("none");
+        
 
     };
 
@@ -69,10 +68,12 @@ export const Loggedin = props => {
         <link rel="stylesheet" href="loggedin.css"></link>
         </head>
       <body>
-        <button class="open-button"  onclick={openForm}>Add New Event</button>
+        <button type="submit" class="open-button"  onClick={openForm}>New Event</button>
+        
 
-            <div class="form-popup" style={{display: {disp}}} id="myForm">
-                 <form class="form-container" onSubmit = {handleSubmit} >
+            <div class="form-popup" style={{display: `${disp}`}} id="myForm">
+            
+                 <form class="form-container"  onSubmit = {handleSubmit} >
                  <h1>Add Event</h1>
 
                
@@ -83,8 +84,10 @@ export const Loggedin = props => {
                 <label for="name"><b>Event Name</b></label>
                 <input type="text" placeholder="Enter Event Name" name="name" value={event}  onChange={(e) => setEvent(e.target.value)} required></input>
 
+
                 <button type="submit" class="btn" onClick={addEvent}>Add Event</button>
-                 <button type="submit" class="btn cancel" onclick={closeForm}>Close</button>
+                <button class="btn cancel" onClick={closeForm}>Close</button>
+                 
 
 
                 </form>
@@ -95,7 +98,6 @@ export const Loggedin = props => {
 
 
             <div id="target">
-  
             </div>
 
             
