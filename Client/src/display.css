@@ -37,9 +37,44 @@ background-color:turquoise;}
     position: relative;
     text-align: left;
     font-size: large;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+   font-family: Arial, Helvetica, sans-serif;
     top: 60px;
 }
+
+.form label{
+
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    
+    text-align: center;
+
+}
+
+
+.form input{
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    width: 49%;
+    text-align: right;
+    bottom: 20px;
+    left: 150px;
+    position:relative;
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.form input:focus{
+    background-color: #ddd;
+    outline: none;
+  }
+
+.form placeholder{
+    opacity: 0;
+}
+
+
 .pre_school{
     position: relative;
     text-align: left;
