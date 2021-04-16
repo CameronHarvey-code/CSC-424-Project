@@ -4,6 +4,8 @@ import Button from 'react-bootstrap/Button';
 
 import styles from './display.css'
 
+var nursery, kinder, pre_school, early_elementary, late_elementary = 0;
+
 
 class Display extends React.Component {
 
@@ -49,11 +51,6 @@ class Display extends React.Component {
     console.log(ename);
     console.log(date);
 
-    const nursery = prompt('Please enter the NURSERY attendance:')
-    const pre_school = prompt('Please enter the PRE-SCHOOL attendance:')
-    const kinder = prompt('Please enter the KINDER attendance:')
-    const early_elementary = prompt('Please enter the EARLY-ELEMENTARY attendance:')
-    const late_elementary = prompt('Please enter the LATE-ELEMENTARY attendance:')
 
 
     Axios.post('http://localhost:3001/updateAttendance', {
@@ -78,7 +75,7 @@ class Display extends React.Component {
   deleteEvent(ename, date, id) {
 
     
-   
+    if (window.confirm('Are you sure you want to delete this event?')) {
     console.log("delete:", ename);
 
    
@@ -96,8 +93,15 @@ class Display extends React.Component {
     });
 
     window.location.reload();
+
+  }
+  else{
+
+  }
   
   }
+
+  
 
 
   render() {
@@ -111,38 +115,55 @@ class Display extends React.Component {
             {val.event_name}    
             </div>
 
+      
+
             <div className="date">
               {"Event Date: " }
               {val.date} 
               </div>
 
-              <div className="nursery"> 
-              {"Nursery: "} {val.nursery} 
+              <div class="form">
+                
+                <div className="nursery"> 
+                  <label for="nursery"> {"Nursery: "}  </label>
+              
+                  <div > 
+                    <input type="text" placeholder={val.nursery} name="nursery" value={this.nursery} onChange={(e) => nursery = e.target.value } ></input>
+                  </div>
                 
               </div>
 
               <div className="pre_school">
-              {"Pre-School: "}
-              {val.pre_school}
+                <label for="pre_school">  {"Pre-School: "} </label>
+                <div>
+                <input type="text" placeholder={val.pre_school} name="pre_school" value={this.pre_school} onChange={(e) => pre_school = e.target.value } ></input>
+                </div>
               </div>
 
               <div className="kinder">
-              {"Kinder: "}
-              {val.kinder}
+              <label for="kinder">  {"Kinder: "} </label>
+                <div>
+                <input type="text" placeholder={val.kinder} name="kinder" value={this.kinder} onChange={(e) => kinder = e.target.value } ></input>
+                </div>
               </div>
 
               <div className="early-elementary">
-              {"Early-Elementary: "}
-              {val.early_elementary}
+              <label for="early-elementary">  {"Early Elementary: "} </label>
+                <div>
+                <input type="text" placeholder={val.early_elementary} name="early_elementary" value={this.early_elementary} onChange={(e) => early_elementary = e.target.value } ></input>
+                </div>
               </div>
 
               <div className="late-elementary">
-              {"Late-Elementary: "}
-              {val.late_elementary}
+              <label for="late-elementary">  {"Late Elementary: "} </label>
+                <div>
+                <input type="text" placeholder={val.late_elementary} name="late_elementary" value={this.late_elementary} onChange={(e) => late_elementary = e.target.value } ></input>
+                </div>
               </div>
 
+              </div>
       
-        <button type="submit" class="attend" onClick={this.updateAttendance.bind(this,val.event_name, val.date, val.event_id)}>Add Attendance</button>
+        <button type="submit" class="attend" onClick={this.updateAttendance.bind(this,val.event_name, val.date, val.event_id)}>Update Attendance</button>
  
         <button type="submit" class="delete" onClick={this.deleteEvent.bind(this,val.event_name, val.date, val.event_id)}>Delete Event</button>
      
@@ -159,4 +180,3 @@ class Display extends React.Component {
 }
 
 export default Display;
-
