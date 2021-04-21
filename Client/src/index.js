@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
-
 import {BrowserRouter, Switch, Route } from 'react-router-dom';
 import {Login} from './login';
 import {Register} from './register';
@@ -30,6 +29,7 @@ import styles from './loggedin.css';
 
 function App() {
   return (
+    
     <div className = "App">
       <Switch>
       <Route exact path="/" component={Login} />

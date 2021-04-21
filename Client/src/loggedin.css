@@ -27,10 +27,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
   border-radius: 10px;
 }
 
-
+.add-event{
+  width: 150px;
+  left: 50px;
+}
 .form-container {
+  position: relative;
   max-width: 300px;
   padding: 10px;
+  bottom: 23px;
   background-color: white;
   border-radius: 10px ;
 }
@@ -100,4 +105,30 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .logout:hover{
   opacity: 3;
+}
+.btn-clear{
+  position: relative;
+  border: none;
+  border-radius: 10px;
+  cursor:pointer;
+  height: 42px;
+  width: 33%;
+  margin-bottom: 10px;
+  display: inline;
+}
+.btn-clear:hover{
+  opacity: 3;
+}
+#service-type{
+  
+  width: 238px;
+  background: #f1f1f1;
+  color: black;
+  text-align: left;
+}
+
+
+#dropdown-split-basic{
+  background-color: #555;
+  width: 42px;
 }
