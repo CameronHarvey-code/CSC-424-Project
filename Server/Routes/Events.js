@@ -45,14 +45,20 @@ router.post('/updateAttendance', (req, res) => {
     const kinder = req.body.kinder;
     const early_elementary = req.body.early_elementary;
     const late_elementary = req.body.late_elementary;
+    const teachers_assistants = req.body.teachers_assistants;
+    const sanctuary = req.body.sanctuary;
+    const media_room = req.body.media_room;
+    const ushers = req.body.ushers;
+    const visitors = req.body.visitors;
+    const w_baptisms = req.body.w_baptisms;
+    const h_g_baptisms = req.body.h_g_baptisms;
     const name = req.body.name;
     const date = req.body.date;
     console.log(req.body.name);
     console.log(req.body.date);
     console.log(req.body.nursery);
     console.log(req.body.sanctuary);
-    client.execute(queries.UpdAtt,
-        [nursery, pre_school, kinder, early_elementary, late_elementary, id], {prepare : true},
+    client.execute(queries.UpdAtt, [nursery, pre_school, kinder, early_elementary, late_elementary, teachers_assistants, sanctuary, media_room, ushers,visitors, w_baptisms,h_g_baptisms, id], {prepare : true},
         (err, result) => { 
             console.log(err);
         });
