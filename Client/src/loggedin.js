@@ -19,6 +19,7 @@ export const Loggedin = props => {
   const [event, setEvent] = useState("Add Service Type");
   const [disp, setDisp] = useState("none");
   const [enable, setEnable] = useState("disabled");
+  const [predDisp, setpredDisp] = useState("none")
 
 
 
@@ -30,6 +31,16 @@ export const Loggedin = props => {
         setDisp('');
         console.log(disp);
     };
+
+    function predictForm() {
+      setpredDisp('');
+      console.log(disp);
+  };
+
+  function predictCloseForm() {
+    setpredDisp("none");
+    console.log(disp);
+};
 
    function closeForm() {
         setDisp("none");
@@ -83,9 +94,55 @@ export const Loggedin = props => {
         <link rel="stylesheet" href="loggedin.css"></link>
         </head>
       <body>
+      <button type="submit" class="predict-button"  onClick={predictForm}>Predict Attendance</button>
         <button type="submit" class="open-button"  onClick={openForm}>New Event</button>
         
 
+        <div class="predict-popup" style={{display: `${predDisp}`}} id="myForm">
+            
+            <form class="form-container"  onSubmit = {handleSubmit} >
+            <h2 className="pred-event">Predict Attendance</h2><button class="btn-pred-clear" onClick={clearForm}>clear</button>
+
+           <input type="date" placeholder="Entre Prediction Date" name="date" value={date} onChange={(e) => setDate(e.target.value)} required></input>
+
+           <button type="submit" class="btn" onClick={addEvent} display={disp}>Predict Date</button>
+           <button class="btn cancel" onClick={predictCloseForm}>Close</button>
+            
+
+
+           </form>
+
+
+
+       </div><div class="form-popup" style={{display: `${disp}`}} id="myForm">
+            
+            <form class="form-container"  onSubmit = {handleSubmit} >
+            <h2 className="add-event">Add Event</h2><button class="btn-clear" onClick={clearForm}>clear</button>
+            
+          
+            <Dropdown as={ButtonGroup} >
+           <Button id="service-type" variant="success">{event}</Button>
+
+           <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
+
+           <Dropdown.Menu>
+           <Dropdown.Item onClick={(e) => setEvent('SUNDAY')}>SUNDAY</Dropdown.Item>
+           <Dropdown.Item onClick={(e) => setEvent('WEDNESDAY')}>WEDNESDAY</Dropdown.Item>
+           </Dropdown.Menu>
+           </Dropdown>
+
+           <input type="date" placeholder="Enter Event Date" name="date" value={date} onChange={(e) => setDate(e.target.value)} required></input>
+
+           <button type="submit" class="btn" onClick={addEvent} display={disp}>Add Event</button>
+           <button class="btn cancel" onClick={closeForm}>Close</button>
+            
+
+
+           </form>
+
+
+
+       </div>
             <div class="form-popup" style={{display: `${disp}`}} id="myForm">
             
                  <form class="form-container"  onSubmit = {handleSubmit} >
