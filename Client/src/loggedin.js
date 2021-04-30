@@ -84,6 +84,18 @@ export const Loggedin = props => {
         window.location.reload();
         }
 
+      const predict = () => {
+
+          console.log(date);
+          Axios.post('http://localhost:3001/predict',{
+            date: date,
+          }).then((response) => {
+
+          });
+          
+
+      }
+
 
 
   
@@ -105,7 +117,7 @@ export const Loggedin = props => {
 
            <input type="date" placeholder="Entre Prediction Date" name="date" value={date} onChange={(e) => setDate(e.target.value)} required></input>
 
-           <button type="submit" class="btn" onClick={addEvent} display={disp}>Predict Date</button>
+           <button type="submit" class="btn" onClick={predict} display={disp}>Predict Date</button>
            <button class="btn cancel" onClick={predictCloseForm}>Close</button>
             
 
@@ -195,8 +207,3 @@ export const Loggedin = props => {
     );
 
  }
-
-
-
-
-
