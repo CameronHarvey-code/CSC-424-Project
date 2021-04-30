@@ -48,7 +48,12 @@ router.post('/predict', (req, res) => {
     console.log({baseDir});
 
     fs.writeFileSync(path.join(`${baseDir}`,"input.txt"), date);
+
+    // CODE TO RUN PYTHON SCRIPT
     
+   const data =  fs.readFileSync(path.join(`${baseDir}`,"prediction.txt"), 'utf8')
+   res.send(data);
+      
 
       
 });
