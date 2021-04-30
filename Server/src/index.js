@@ -32,6 +32,8 @@ app.post('/deleteEvent', events);
 app.get('/eventDisplay', events);
 //UPDATE EVENT METHOD (POST)
 app.post('/updateAttendance', events);
+//WRITE DATE TO FILE
+app.post('/predict', events);
 
 //SERVER RUNNING
 app.listen(PORT, () => {
