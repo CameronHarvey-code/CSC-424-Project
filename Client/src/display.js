@@ -4,8 +4,10 @@ import Button from 'react-bootstrap/Button';
 
 import styles from './display.css'
 
+
 var nursery, kinder, pre_school, early_elementary, late_elementary;
 var teachers_assistants, sanctuary, media_room, ushers, visitors, w_baptisms, h_g_baptisms;
+
 
 
 class Display extends React.Component {
@@ -227,6 +229,7 @@ class Display extends React.Component {
 
           </div>
               
+
 
         <button type="submit" class="attend" onClick={this.updateAttendance.bind(this,val.event_name, val.date, val.event_id)}>Update Attendance</button>
  
