@@ -7,6 +7,7 @@ background-color:turquoise;}
     margin: 40px auto;
     padding: 20px 20px 100px;
     width: 310px;
+    height: 615px;
     background: white;
     border-radius: 10px;
     -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -26,19 +27,18 @@ background-color:turquoise;}
 
 .date{
     position: relative;
-    text-align: center;
-    font-size: large;
-    top: 30px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    
-    
-}
-.nursery{
-    position: relative;
     text-align: left;
     font-size: large;
-   font-family: Arial, Helvetica, sans-serif;
-    top: 60px;
+    top: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;  
+    
+}
+.display{
+    height: 655px;
+}
+.form{
+    height: 431px;
+    width: 270px;
 }
 
 .form label{
@@ -56,10 +56,11 @@ background-color:turquoise;}
     border: none;
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
-    width: 49%;
+    width: 30%;
+    height: 25px;
     text-align: right;
-    bottom: 20px;
-    left: 150px;
+    bottom: 30px;
+    left: 200px;
     position:relative;
     background: #f1f1f1;
     border-radius: 10px;
@@ -73,17 +74,35 @@ background-color:turquoise;}
 .form placeholder{
     opacity: 0;
 }
+.date{
+    position: relative;
+    text-align: left;
+    font-size: large;
+    top: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;     
+}
+
+.nursery{
+    position: relative;
+    height: 25px;
+    text-align: left;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    top: 50px;
+}
 
 
 .pre_school{
     position: relative;
+    height: 25px;
     text-align: left;
     font-size: large;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    top: 60px;
+    top: 55px;
 }
 .kinder{
     position: relative;
+    height: 25px;
     text-align: left;
     font-size: large;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -91,19 +110,77 @@ background-color:turquoise;}
 }
 .early-elementary{
     position: relative;
+    height: 25px;
     text-align: left;
     font-size: large;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    top: 60px;
+    top: 65px;
 }
 .late-elementary{
     position: relative;
+    height: 25px;
     text-align: left;
     font-size: large;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    top: 60px;
+    top: 70px;
 }
-
+.teachers-assistants{
+    position: relative;
+    height: 25px;
+    text-align: left;
+    font-size: small;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    top: 75px;
+}
+.sanctuary{
+    position: relative;
+    height: 25px;
+    text-align: left;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    top: 80px;
+}
+.media-room{
+    position: relative;
+    height: 25px;
+    text-align: left;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    top: 85px;
+}
+.ushers{
+    position: relative;
+    height: 25px;
+    text-align: left;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    top: 90px;
+}
+.visitors{
+    position: relative;
+    height: 25px;
+    text-align: left;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    top: 95px;
+}
+.w-baptisms{
+    position: relative;
+    height: 25px;
+    text-align: left;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    top: 100px;
+}
+.h-g-baptisms{
+    position: relative;
+    height: 25px;
+    text-align: left;
+    text-size-adjust: 10px;
+    font-size: large;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    top: 105px;
+}
 .attend{
     position: relative;
     background-color:#4CAF50;
@@ -113,7 +190,7 @@ background-color:turquoise;}
     cursor: pointer;
     width: 100%;
     margin-bottom:0px;
-    top: 100px;
+    top: 0px;
     border-radius: 10px;
     opacity: 0.8;
 
@@ -133,7 +210,7 @@ background-color:turquoise;}
     width: 100%;
     margin-bottom: 20px;
     border-radius: 10px;
-    top: 110px;
+    top: 10px;
     opacity: 0.8;
 
 }
