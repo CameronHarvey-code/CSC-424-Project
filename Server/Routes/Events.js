@@ -1,8 +1,13 @@
 const express = require('express');
 const client = require('../Database/dbConn');
 const queries = require('../Database/Queries');
+const fs = require('fs');
+const path = require('path');
 
 const router = express.Router();
+
+let baseDir = path.join(__dirname, '../../ML/');
+
 
 router.post('/addEvent', (req, res) => {
 
@@ -35,6 +40,17 @@ router.get('/eventDisplay', (req, res) => {
             res.send(result);
         });
     
+});
+
+router.post('/predict', (req, res) => {
+    const date = req.body.date;
+    console.log(date);
+    console.log({baseDir});
+
+    fs.writeFileSync(path.join(`${baseDir}`,"input.txt"), date);
+    
+
+      
 });
 
 router.post('/updateAttendance', (req, res) => {
