@@ -19,7 +19,8 @@ export const Loggedin = props => {
   const [event, setEvent] = useState("Add Service Type");
   const [disp, setDisp] = useState("none");
   const [enable, setEnable] = useState("disabled");
-  const [predDisp, setpredDisp] = useState("none")
+  const [predDisp, setpredDisp] = useState("none");
+  
 
 
 
@@ -91,8 +92,11 @@ export const Loggedin = props => {
             date: date,
           }).then((response) => {
 
+            console.log(response.data);
+            setpredDisp(response.data);
+
           });
-          
+
 
       }
 
@@ -114,7 +118,7 @@ export const Loggedin = props => {
             
             <form class="form-container"  onSubmit = {handleSubmit} >
             <h2 className="pred-event">Predict Attendance</h2><button class="btn-pred-clear" onClick={clearForm}>clear</button>
-
+            <h3 className="prediction">{predDisp}</h3>
            <input type="date" placeholder="Entre Prediction Date" name="date" value={date} onChange={(e) => setDate(e.target.value)} required></input>
 
            <button type="submit" class="btn" onClick={predict} display={disp}>Predict Date</button>
@@ -207,3 +211,4 @@ export const Loggedin = props => {
     );
 
  }
+
